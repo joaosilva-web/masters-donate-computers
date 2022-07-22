@@ -8,18 +8,21 @@ const Home: NextPage = () => {
 
   // VERIFY THE SERVER STATUS
   function verifyServerStatus() {
+    // API QUERY TO GET SERVER STATUS
     api.get('').then((response) => {
+
       setIsServerRunning(response.data.alive)
-      console.log(response.data.alive)
+
     }).catch((error) => {
+
       console.log(error)
+
     })
   }
 
   // RUN ONE TIME PER RENDER TO GET THE SERVER STATUS
   useEffect(() => {
     verifyServerStatus()
-    console.log('teste')
   },[])
 
   return (
