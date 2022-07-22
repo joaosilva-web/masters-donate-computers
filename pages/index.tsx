@@ -3,14 +3,18 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import api from '../services/api'
 
+interface VerifyStatusServerResponse {
+  alive: boolean
+}
+
 const Home: NextPage = () => {
   const [isServerRunning, setIsServerRunning] = useState<boolean | null>(null)
 
   // VERIFY THE SERVER STATUS
   function verifyServerStatus() {
     // API QUERY TO GET SERVER STATUS
-    api.get('').then((response) => {
-
+    api.get<VerifyStatusServerResponse>('').then((response) => {
+      console.log(response)
       setIsServerRunning(response.data.alive)
 
     }).catch((error) => {
