@@ -1,7 +1,26 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import api from '../services/api'
 
 const Home: NextPage = () => {
+  const [isServerRunning, setIsServerRunning] = useState<boolean>()
+
+  // VERIFY THE SERVER STATUS
+  function verifyServerStatus() {
+    api.get('').then((response) => {
+      setIsServerRunning(response.data.alive)
+      console.log(response.data.alive)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
+  // RUN ONE TIME PER RENDER TO GET THE STATUS SERVER
+  useEffect(() => {
+    verifyServerStatus()
+  },[])
+
   return (
     <div>
       <Head>
