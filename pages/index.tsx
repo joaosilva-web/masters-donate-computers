@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   function verifyServerStatus() {
     // API QUERY TO GET SERVER STATUS
     api.get<VerifyStatusServerResponse>('').then((response) => {
-      console.log(response)
+      
       setIsServerRunning(response.data.alive)
 
     }).catch((error) => {
