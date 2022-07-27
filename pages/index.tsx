@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+
 import api from '../services/api'
+
+import DataSubmissionForm from '../components/DataSubmissionForm'
 
 interface VerifyStatusServerResponse {
   alive: boolean
@@ -44,8 +47,8 @@ const Home: NextPage = () => {
       ) : (
         <p>API Offline</p>
       )
-    
     }
+    <DataSubmissionForm/>
     </div>
   )
 }
