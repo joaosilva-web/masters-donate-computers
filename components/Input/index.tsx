@@ -1,17 +1,18 @@
 import React, { FormEvent, InputHTMLAttributes, useCallback } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 import { phone, zipcode } from "./masks";
-import { InputText } from "./styles"
+import { InputContainer, InputText } from "./styles"
 
 interface InputProps extends InputHTMLAttributes<HTMLElement>{
     inputType: string;
     label?: string;
     placeholder: string;
-    mask?: string
-    register?: any
+    mask?: string;
+    register?: any;
+    w: string;
 }
 
-const Input = ({inputType, label, placeholder,  mask, register}: InputProps) => {
+const Input = ({inputType, label, placeholder,  mask, register, w}: InputProps) => {
 
     // USECALLBACK TO GET THE INPUT MASK
     const handleKeyUp = useCallback(
@@ -25,10 +26,12 @@ const Input = ({inputType, label, placeholder,  mask, register}: InputProps) => 
     }, [mask])
 
     return(
-        <label>
+        <InputContainer w={w}>
+            <label>
             {label && <p>{label}</p>}
+            </label>
             <InputText type={inputType} placeholder={placeholder} onKeyUp={handleKeyUp} {...register}/>
-        </label>
+        </InputContainer>
     )
 }
 
