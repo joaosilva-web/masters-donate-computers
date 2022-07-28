@@ -4,6 +4,7 @@ import Input from '../Input';
 import { FormDataContainer } from './styles';
 
 import cep from 'cep-promise'
+import Select from '../Select';
 
 const DataSubmissionForm = () => {
     const { register, handleSubmit, watch, setValue, setFocus,  } = useForm()
@@ -35,6 +36,22 @@ const DataSubmissionForm = () => {
            getAddress(zipcode)
         }
     }
+
+    // OPTIONS FOR DEVICE SELECT
+    const deviceTypesData = [
+        {value: 'notebook', label: 'Notebook'},
+        {value: 'desktop', label: 'Desktop'},
+        {value: 'netbook', label: 'Netbook'},
+        {value: 'printer', label: 'Impressora'},
+        {value: 'scanner', label: 'Scanner'},
+    ]
+
+    // OPTIONS FOR STATES DEVICE SELECT
+    const deviceStatesData = [
+        {value: 'working', label: 'Tem todas as partes, liga e funciona normalmente'},
+        {value: 'Tem todas as partes, mas não liga mais', label: 'notWorking'},
+        {value: 'Faltam peças, funciona só as vezes ou está quebrado', label: 'broken'},
+    ]
     return(
         <FormDataContainer>
              {/* PERSONAL DATA INPUTS */}
@@ -52,6 +69,10 @@ const DataSubmissionForm = () => {
 
             {/* AMOUNT OF DEDVICES TO DONATE */}
             <Input inputType='number' label='Quantos equipamentos serão doados' placeholder='2' register={register('deviceCount')}/>
+
+            {/* DEVICES INFORMATIONS */}
+            <Select data={deviceTypesData} placeholder='Tipo do dispositivo'/>
+            <Select data={deviceStatesData} placeholder='Estado do dispositivo'/>
 
             <Input inputType='submit' placeholder='Enviar'/>
 
