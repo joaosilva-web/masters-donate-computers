@@ -1,21 +1,25 @@
 import React from "react"
-import { Option, SelectInput } from "./styles"
+import {SelectContainer, SelectInput } from "./styles"
 
 interface SelectProps {
     data: {value: string, label: string}[]
     placeholder?: string
+    w: string
 }
 
-const Select = ({data, placeholder}: SelectProps) => {
+const Select = ({data, placeholder, w}: SelectProps) => {
     return(
-        <label htmlFor="">
-            <p>{placeholder}</p>
+        <SelectContainer w={w}>
+            <label htmlFor="">
+                <p>{placeholder}</p>
+            </label>
             <SelectInput>
+                <option hidden>{'Selecione'}</option>
             {data.map((option) => (
-                <Option key={option.label} value={option.value}>{option.label}</Option>
+                <option key={option.label} value={option.value}>{option.label}</option>
             ))}
         </SelectInput>
-        </label>
+        </SelectContainer>
     )
 }
 
