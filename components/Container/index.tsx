@@ -5,11 +5,12 @@ interface ContainerProps {
     children: JSX.Element[]
     bg: string
     h: string
+    justify: string
 }
 
-const Container = ({children, bg, h}: ContainerProps) => {
+const Container = ({children, bg, h, justify = 'space-between'}: ContainerProps) => {
     return(
-        <ContainerDefault bg={bg} h={h}>
+        <ContainerDefault bg={bg} h={h} justify={justify}>
             {children}
         </ContainerDefault>
     )
