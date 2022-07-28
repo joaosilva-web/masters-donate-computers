@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 interface InputContainerProps {
     w: string
+    type: string
 }
 
 export const InputContainer = styled.div<InputContainerProps>`
+    display: flex;
+    flex-direction: column;
     width: ${props => props.w};
     padding: 0.5rem;
-
+    margin: ${props => props.type === 'submit'? '0 auto' : '0'};
+    
 `
 
 export const BaseInput = styled.input`
@@ -21,6 +25,11 @@ export const BaseInput = styled.input`
 
     &::placeholder {
         color: ${props => props.theme['gray-400']};
+    }
+    
+    &&[type="submit"] {
+        background: ${props => props.theme['primary']};
+        color: ${props => props.theme['secondary']};
     }
 `
 

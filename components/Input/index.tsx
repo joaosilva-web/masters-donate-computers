@@ -26,7 +26,7 @@ const Input = ({inputType, label, placeholder,  mask, register, w}: InputProps) 
     }, [mask])
 
     return(
-        <InputContainer w={w}>
+        <InputContainer w={w} type={inputType}>
             <label>
             {label && <p>{label}</p>}
             </label>
