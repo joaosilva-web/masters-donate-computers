@@ -5,7 +5,7 @@ interface ContainerProps {
     children: JSX.Element[]
     bg: string
     h: string
-    justify: string
+    justify?: string
 }
 
 const Container = ({children, bg, h, justify = 'space-between'}: ContainerProps) => {
