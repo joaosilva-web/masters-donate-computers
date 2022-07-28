@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form'
 import Input from '../Input';
-import { FormDataContainer } from './styles';
+import { FormDataContainer, FormGroupContainer } from './styles';
 
 import cep from 'cep-promise'
 import Select from '../Select';
@@ -49,32 +49,40 @@ const DataSubmissionForm = () => {
     // OPTIONS FOR STATES DEVICE SELECT
     const deviceStatesData = [
         {value: 'working', label: 'Tem todas as partes, liga e funciona normalmente'},
-        {value: 'Tem todas as partes, mas não liga mais', label: 'notWorking'},
-        {value: 'Faltam peças, funciona só as vezes ou está quebrado', label: 'broken'},
+        {value: 'notWorking', label: 'Tem todas as partes, mas não liga mais'},
+        {value: 'broken', label: 'Faltam peças, funciona só as vezes ou está quebrado'},
     ]
     return(
         <FormDataContainer>
              {/* PERSONAL DATA INPUTS */}
-            <Input inputType='text' label='Nome' placeholder='João' register={register('name')}/>
-            <Input inputType='email' label='E-mail' placeholder='joaosilva@gmail.com' register={register('email')}/>
-            <Input inputType='text' label='Telefone' placeholder='(44) 99999-9999' mask='phone' register={register('email')}/>
+            <FormGroupContainer>
+            <Input inputType='text' w={'100%'} label='Nome' placeholder='João' register={register('name')}/>
+            <Input inputType='email' w={'50%'} label='E-mail' placeholder='joaosilva@gmail.com' register={register('email')}/>
+            <Input inputType='text' w={'50%'} label='Telefone' placeholder='(44) 99999-9999' mask='phone' register={register('phone')}/>
+            </FormGroupContainer>
 
             {/* ADDRESS DATA INPUTS */}
-            <Input inputType='text' label='CEP' placeholder='99999-999' mask='zipcode' register={register('zipcode')}/>
-            <Input inputType='text' label='Cidade' placeholder='Toledo' mask='city' register={register('city')}/>
-            <Input inputType='text' label='Estado' placeholder='PR' mask='state' register={register('state')}/>
-            <Input inputType='text' label='Bairro' placeholder='Vila Becker' register={register('neighborhood')}/>
-            <Input inputType='text' label='Endereço' placeholder='Av. São Paulo' register={register('streetAdress')}/>
-            <Input inputType='text' label='Número' placeholder='Av. São Paulo' register={register('number')}/>
+            <FormGroupContainer>
+            <Input inputType='text' w={'50%'} label='CEP' placeholder='99999-999' mask='zipcode' register={register('zipcode')}/>
+            <Input inputType='text' w={'50%'} label='Cidade' placeholder='Toledo' mask='city' register={register('city')}/>
+            <Input inputType='text' w={'50%'} label='Estado' placeholder='PR' mask='state' register={register('state')}/>
+            <Input inputType='text' w={'50%'} label='Bairro' placeholder='Vila Becker' register={register('neighborhood')}/>
+            <Input inputType='text' w={'50%'} label='Endereço' placeholder='Av. São Paulo' register={register('streetAdress')}/>
+            <Input inputType='text' w={'50%'} label='Número' placeholder='Av. São Paulo' register={register('number')}/>
+            </FormGroupContainer>
 
             {/* AMOUNT OF DEDVICES TO DONATE */}
-            <Input inputType='number' label='Quantos equipamentos serão doados' placeholder='2' register={register('deviceCount')}/>
+            <FormGroupContainer>
+            <Input inputType='number' w={'50%'} label='Quantos equipamentos serão doados' placeholder='2' register={register('deviceCount')}/>
+            </FormGroupContainer>
 
             {/* DEVICES INFORMATIONS */}
-            <Select data={deviceTypesData} placeholder='Tipo do dispositivo'/>
-            <Select data={deviceStatesData} placeholder='Estado do dispositivo'/>
+            <FormGroupContainer>
+            <Select data={deviceTypesData} w={'50%'} placeholder='Tipo do dispositivo'/>
+            <Select data={deviceStatesData} w={'50%'} placeholder='Estado do dispositivo'/>
+            </FormGroupContainer>
 
-            <Input inputType='submit' placeholder='Enviar'/>
+            <Input inputType='submit' w={'50%'} placeholder='Enviar'/>
 
         </FormDataContainer>
     )
