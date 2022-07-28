@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const FormDataContainer = styled.form`
+position: relative;
 padding: 0.5rem;
 margin: 0.5rem;
 border-radius: 0.25rem;

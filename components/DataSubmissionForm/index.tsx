@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form'
 import Input from '../Input';
 import { FormDataContainer, FormGroupContainer } from './styles';
 
 import cep from 'cep-promise'
 import Select from '../Select';
+import Spinner from '../Spinner';
 
 const DataSubmissionForm = () => {
-    const { register, handleSubmit, watch, setValue, setFocus,  } = useForm()
+    const { register, handleSubmit, watch, setValue, setFocus, setError, trigger  } = useForm()
+    const [loading, setLoading] = useState(false)
 
     const zipcode = watch('zipcode')
+    const city = watch('city')
     const deviceCount = watch('deviceCount')
 
     async function getAddress(zipcode: string){
@@ -29,13 +32,25 @@ const DataSubmissionForm = () => {
         }
 
     }
+    //GET ADDRESS DATA IF ZIPCODE INPUT HAS LENGTH EQUAL TO 9
 
-    if(zipcode){
-        console.log('test')
-        if(zipcode.length >= 9){
-           getAddress(zipcode)
+    useEffect(() => {
+        if(zipcode){
+            if(zipcode.length >= 9){
+
+                    setLoading(true)
+               getAddress(zipcode).then((response) => {
+                console.log(response)
+               })
+               .catch((error) => {
+
+               }).finally(() => {
+                setLoading(false)
+               })
+                
+            }
         }
-    }
+    },[zipcode])
 
     // OPTIONS FOR DEVICE SELECT
     const deviceTypesData = [
@@ -54,6 +69,7 @@ const DataSubmissionForm = () => {
     ]
     return(
         <FormDataContainer>
+                {loading && <Spinner/>}
              {/* PERSONAL DATA INPUTS */}
             <FormGroupContainer>
             <Input inputType='text' w={'100%'} label='Nome' placeholder='João' register={register('name')}/>
