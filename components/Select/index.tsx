@@ -1,20 +1,24 @@
 import React from "react"
-import {SelectContainer, SelectInput } from "./styles"
+import {LabelWrapper, SelectContainer, SelectInput } from "./styles"
 
 interface SelectProps {
     data: {value: string, label: string}[]
     placeholder?: string
     w: string
+    register: any
+    errors: any
 }
 
-const Select = ({data, placeholder, w}: SelectProps) => {
+const Select = ({data, placeholder, w, register, errors}: SelectProps) => {
     return(
         <SelectContainer w={w}>
-            <label htmlFor="">
-                <p>{placeholder}</p>
-            </label>
-            <SelectInput>
-                <option hidden>{'Selecione'}</option>
+            <LabelWrapper>
+                <label htmlFor={register.name}>
+                    <p>{placeholder}</p>
+                </label>
+                <p>{errors && errors[register.name]?.message }</p>
+            </LabelWrapper>
+            <SelectInput {...register}>
             {data.map((option) => (
                 <option key={option.label} value={option.value}>{option.label}</option>
             ))}
