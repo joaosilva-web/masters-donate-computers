@@ -5,7 +5,7 @@ position: relative;
 padding: 0.5rem;
 margin: 1rem;
 border-radius: 0.25rem;
-max-height: 100vh;
+max-height: 100%;
 width: 50%;
 background-color: ${props => props.theme['gray-50']};
 
@@ -47,25 +47,6 @@ overflow-y: scroll;
   }
 `
 
-export const FormGroupContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-
-    width: 98%; // 600px
-    margin: 0 auto;
-
-    @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`
-
 interface ButtonProps {
     w: string
 }
@@ -88,4 +69,11 @@ export const Button = styled.button<ButtonProps>`
     &:hover {
         background-color: ${props => props.theme['blue-500']};
     }
+`
+
+export const CenterContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `

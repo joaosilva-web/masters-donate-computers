@@ -2,12 +2,13 @@ import { FormEventHandler, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import Input from '../Input';
-import { Button, FormDataContainer, FormGroupContainer } from './styles';
+import { Button, CenterContainer, FormDataContainer} from './styles';
 import * as zod from 'zod'
 
 import cep from 'cep-promise'
 import Select from '../Select';
 import Spinner from '../Spinner';
+import FormGroupContainer from '../FormGroupContainer';
 import api from '../../services/api';
 import { toast } from 'react-toastify';
 
@@ -78,11 +79,12 @@ const DataSubmissionForm = () => {
 
         const zipcodeFormatted = zipcode.replace(/\D/g, '')
         cep(zipcodeFormatted).then((cepResponse) => {
-            console.log(cepResponse.cep)
+            console.log(cepResponse.street)
+            setValue('zip', zipcode, {shouldValidate: true})
             setValue('city', cepResponse.city, {shouldValidate: true})
             setValue('state', cepResponse.state, {shouldValidate: true})
             setValue('neighborhood', cepResponse.neighborhood, {shouldValidate: true})
-            setValue('streetAdress', cepResponse.street, {shouldValidate: true})
+            setValue('streetAddress', cepResponse.street, {shouldValidate: true})
     
             if(cepResponse.city && cepResponse.state && cepResponse.neighborhood && cepResponse.street){
                 setFocus('number')
@@ -134,7 +136,7 @@ const DataSubmissionForm = () => {
     const deviceInformation = []
     for(let index = 0; index < deviceCount; index++) {
         deviceInformation.push(
-            <FormGroupContainer>
+            <FormGroupContainer title={`dispositivo ${index + 1}`}>
                 <Select data={deviceTypesData} w={'100%'} placeholder='Tipo do dispositivo' register={register(`type${index}`)} errors={errors}/>
                 <Select data={deviceStatesData} w={'100%'} placeholder='Estado do dispositivo' register={register(`condition${index}`)} errors={errors}/>
             </FormGroupContainer>)
@@ -144,14 +146,17 @@ const DataSubmissionForm = () => {
         <FormDataContainer onSubmit={handleSubmit(handleNewDonation)} action="">
                 {loading && <Spinner/>}
              {/* PERSONAL DATA INPUTS */}
-            <FormGroupContainer>
+             <CenterContainer>
+             <h2>Formulário de doação</h2>
+             </CenterContainer>
+            <FormGroupContainer title="Dados pessoais">
             <Input inputType='text' w={'100%'} label='Nome' placeholder='João' register={register('name')} errors={errors}/>
             <Input inputType='email' w={'50%'} label='E-mail' placeholder='joaosilva@gmail.com' register={register('email')} errors={errors}/>
             <Input inputType='text' w={'50%'} label='Telefone' placeholder='(44) 99999-9999' mask='phone' register={register('phone')} errors={errors}/>
             </FormGroupContainer>
 
             {/* ADDRESS DATA INPUTS */}
-            <FormGroupContainer>
+            <FormGroupContainer title="Dados residenciais">
             <Input inputType='text' w={'50%'} label='CEP' placeholder='99999-999' mask='zipcode' register={register('zip')} errors={errors}/>
             <Input inputType='text' w={'50%'} label='Cidade' placeholder='Toledo' mask='city' register={register('city')} errors={errors}/>
             <Input inputType='text' w={'50%'} label='Estado' placeholder='PR' mask='state' register={register('state')} errors={errors}/>
@@ -162,14 +167,16 @@ const DataSubmissionForm = () => {
             </FormGroupContainer>
 
             {/* AMOUNT OF DEDVICES TO DONATE */}
-            <FormGroupContainer>
+            <FormGroupContainer title="dispositivos">
             <Input inputType='number' w={'100%'} label='Quantos equipamentos serão doados' placeholder='2' register={register('deviceCount', {valueAsNumber: true,  value: 0})} errors={errors}/>
             </FormGroupContainer>
 
             {/* DEVICES INFORMATIONS */}
             {deviceInformation}
 
+            <CenterContainer>
             <Button type='submit' w={'50%'}>Enviar</Button>
+            </CenterContainer>
 
         </FormDataContainer>
     )

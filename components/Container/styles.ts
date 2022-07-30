@@ -10,6 +10,7 @@ export const ContainerDefault = styled.div<ContainerDefaultProps>`
     display: flex;
     background: ${props => props.theme[props.bg]};
     min-height: ${props => props.h};
+    max-height: ${props => props.h};
     justify-content: ${props => props.justify};
 
     @media (max-width: 768px) {
