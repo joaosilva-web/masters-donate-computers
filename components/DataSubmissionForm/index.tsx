@@ -9,7 +9,9 @@ import cep from 'cep-promise'
 import Select from '../Select';
 import Spinner from '../Spinner';
 import api from '../../services/api';
+import { toast } from 'react-toastify';
 
+// VALIDATION FORM SCHEMA
 const newDonationFormValidationSchema = zod.object({
     name: zod.string().min(1, '*Informe o seu nome'),
     email: zod.string().min(1, '*Informe o seu E-mail').email('Utilize um E-mail valido!'),
@@ -29,7 +31,7 @@ const newDonationFormValidationSchema = zod.object({
 })
 
 const DataSubmissionForm = () => {
-    const { register, handleSubmit, watch, setValue, setFocus, formState:{errors}, getValues  } = useForm({
+    const { register, handleSubmit, watch, setValue, setFocus, formState:{errors}, getValues, reset, setError } = useForm({
         resolver: zodResolver(newDonationFormValidationSchema)
     })
     const [loading, setLoading] = useState(false)
@@ -37,7 +39,9 @@ const DataSubmissionForm = () => {
     const zipcode = watch('zip')
     const deviceCount = watch('deviceCount')
     
+    // SEND THE FORM INFORMATIONS TO BACKEND
     function handleNewDonation() {
+        setLoading(true)
         const devices = [];
         const fieldsValues = getValues()
         for(let index = 0; index < deviceCount; index++) {
@@ -60,29 +64,34 @@ const DataSubmissionForm = () => {
         deviceCount: fieldsValues.deviceCount,
         devices
         }
-        console.log(dataToStore)
         api.post('donation', dataToStore).then((response) => {
-            console.log(response, 'RESPOSTA');
+            toast('Formulário enviado com sucesso!', {type: 'success'})
+            reset()
         }).catch((error) => {
-            console.log(error, 'ERRO AO ENVIAR')
+            toast('Ocorreu um erro de conexão com o servidor tente novamente em alguns segundos!', {type: 'error'})
+        }).finally(() => {
+            setLoading(false)
         })
     }
     // FUNCTION THAT GET ADDRESS DATA
     async function getAddress(zipcode: string){
 
         const zipcodeFormatted = zipcode.replace(/\D/g, '')
-        const test = await cep(zipcodeFormatted)
-        console.log(test)
-        setValue('city', test.city)
-        setValue('state', test.state)
-        setValue('neighborhood', test.neighborhood)
-        setValue('streetAdress', test.street)
-
-        if(test.city && test.state && test.neighborhood && test.street){
-            setFocus('number')
-        } else {
-            setFocus('neighborhood')
-        }
+        cep(zipcodeFormatted).then((cepResponse) => {
+            console.log(cepResponse.cep)
+            setValue('city', cepResponse.city, {shouldValidate: true})
+            setValue('state', cepResponse.state, {shouldValidate: true})
+            setValue('neighborhood', cepResponse.neighborhood, {shouldValidate: true})
+            setValue('streetAdress', cepResponse.street, {shouldValidate: true})
+    
+            if(cepResponse.city && cepResponse.state && cepResponse.neighborhood && cepResponse.street){
+                setFocus('number')
+            } else {
+                setFocus('neighborhood')
+            }
+        }).catch((error) => {
+            setError('zip', {type: 'custom', message: '*CEP invalido'})
+        })
 
     }
     
@@ -95,7 +104,7 @@ const DataSubmissionForm = () => {
                 console.log(response)
                })
                .catch((error) => {
-
+                    
                }).finally(() => {
                 setLoading(false)
                })
@@ -148,13 +157,13 @@ const DataSubmissionForm = () => {
             <Input inputType='text' w={'50%'} label='Estado' placeholder='PR' mask='state' register={register('state')} errors={errors}/>
             <Input inputType='text' w={'50%'} label='Bairro' placeholder='Vila Becker' register={register('neighborhood')} errors={errors}/>
             <Input inputType='text' w={'50%'} label='Endereço' placeholder='Av. São Paulo' register={register('streetAddress')} errors={errors}/>
-            <Input inputType='text' w={'50%'} label='Complemento' placeholder='Ao lado do mercado São Lucas' register={register('complement')} errors={errors}/>
             <Input inputType='text' w={'50%'} label='Número' placeholder='4878' register={register('number')} errors={errors}/>
+            <Input inputType='text' w={'100%'} label='Complemento' placeholder='Ao lado do mercado São Lucas' register={register('complement')} errors={errors}/>
             </FormGroupContainer>
 
             {/* AMOUNT OF DEDVICES TO DONATE */}
             <FormGroupContainer>
-            <Input inputType='number' w={'50%'} label='Quantos equipamentos serão doados' placeholder='2' register={register('deviceCount', {valueAsNumber: true,  value: 1})} errors={errors}/>
+            <Input inputType='number' w={'100%'} label='Quantos equipamentos serão doados' placeholder='2' register={register('deviceCount', {valueAsNumber: true,  value: 0})} errors={errors}/>
             </FormGroupContainer>
 
             {/* DEVICES INFORMATIONS */}

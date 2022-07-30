@@ -34,7 +34,7 @@ const Input = ({inputType, label, placeholder,  mask, register, w, errors}: Inpu
                 </label>
                 <p>{errors && errors[register.name]?.message }</p>
             </LabelWrapper>
-            <InputText type={inputType} placeholder={placeholder} onKeyUp={handleKeyUp} {...register}/>
+            <InputText type={inputType} placeholder={placeholder} onKeyUp={handleKeyUp} {...register} errors={errors && errors[register.name]?.message }/>
         </InputContainer>
     )
 }

@@ -25,7 +25,11 @@ export const LabelWrapper = styled.div`
     }
 `
 
-export const BaseInput = styled.input`
+interface BaseInputProps {
+    errors?: any
+}
+
+export const BaseInput = styled.input<BaseInputProps>`
     width: 100%;
     height: 2.5rem;
     border: 0;
@@ -33,6 +37,8 @@ export const BaseInput = styled.input`
     padding: 0.5rem;
     color: ${props => props.theme['gray-700']};
     font-weight: bold;
+    box-shadow: 0 0 0 2px ${props => props.errors? props.theme['red-500'] : 'transparent'};
+    transition: 0.25s ease;
 
     &::placeholder {
         color: ${props => props.theme['gray-400']};
@@ -45,7 +51,6 @@ export const BaseInput = styled.input`
 `
 
 export const InputText = styled(BaseInput)`
-
 `
 
 export const InputNumber = styled(BaseInput)`
