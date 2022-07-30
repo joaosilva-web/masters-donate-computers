@@ -11,6 +11,12 @@ export const InputContainer = styled.div<InputContainerProps>`
     width: ${props => props.w};
     padding: 0.5rem;
     margin: ${props => props.type === 'submit'? '0 auto' : '0'};
+
+    @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+
+  }
     
 `
 
