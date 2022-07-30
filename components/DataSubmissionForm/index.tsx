@@ -23,7 +23,7 @@ const newDonationFormValidationSchema = zod.object({
   email: zod
     .string()
     .min(1, "*Informe o seu E-mail")
-    .email("Utilize um E-mail valido!"),
+    .email("*Utilize um E-mail valido!"),
   phone: zod.string().min(1, "*Informe o seu Telefone"),
 
   zip: zod.string().min(1, "*Informe o seu CEP"),
@@ -89,15 +89,14 @@ const DataSubmissionForm = () => {
       .then((response) => {
         toast("Formulário enviado com sucesso!", { type: "success" });
         reset();
+        setLoading(false);
       })
       .catch((error) => {
         toast(
           "Ocorreu um erro de conexão com o servidor tente novamente em alguns segundos!",
           { type: "error" }
-        );
-      })
-      .finally(() => {
-        setLoading(false);
+          );
+          setLoading(false);
       });
   }
   // FUNCTION THAT GET ADDRESS DATA
@@ -298,7 +297,7 @@ const DataSubmissionForm = () => {
       </FormGroupContainer>
 
       {/* AMOUNT OF DEDVICES TO DONATE */}
-      <FormGroupContainer title="dispositivos">
+      <FormGroupContainer title="Dispositivos">
         <Input
           inputType="number"
           w={"100%"}

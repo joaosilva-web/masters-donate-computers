@@ -16,7 +16,7 @@ const Select = ({ data, placeholder, w, register, errors }: SelectProps) => {
         <label htmlFor={register.name}>
           <p>{placeholder}</p>
         </label>
-        <p>{errors && errors[register.name]?.message}</p>
+        <p>{errors && errors[register.name]?.message === 'Required' && ''}</p>
       </LabelWrapper>
       <SelectInput {...register}>
         {data.map((option) => (
