@@ -15,7 +15,7 @@ export const LabelWrapper = styled.div`
     align-items: center;
 
     & > p {
-        color: ${props => props.theme['red-500']};
+        color: ${props => props.theme['red-300']};
         font-size: 0.75rem;
     }
 `

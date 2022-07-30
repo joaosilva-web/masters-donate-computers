@@ -20,7 +20,7 @@ export const LabelWrapper = styled.div`
     align-items: center;
 
     & > p {
-        color: ${props => props.theme['red-500']};
+        color: ${props => props.theme['red-300']};
         font-size: 0.75rem;
     }
 `
@@ -37,7 +37,7 @@ export const BaseInput = styled.input<BaseInputProps>`
     padding: 0.5rem;
     color: ${props => props.theme['gray-700']};
     font-weight: bold;
-    box-shadow: 0 0 0 2px ${props => props.errors? props.theme['red-500'] : 'transparent'};
+    box-shadow: 0 0 0 2px ${props => props.errors? props.theme['red-300'] : 'transparent'};
     transition: 0.25s ease;
 
     &::placeholder {
