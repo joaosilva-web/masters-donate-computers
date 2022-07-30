@@ -9,7 +9,7 @@ import DataSubmissionForm from "../components/DataSubmissionForm";
 import Container from "../components/Container";
 import Image from "next/image";
 import giftImage from "../public/gift.svg";
-import { HeroContainer, HomeWrapper } from "./indexStyles";
+import { HeroContainer, HomeWrapper } from "../styles/PagesStyle/indexStyles";
 import ServerBadge from "../components/ServerBadge";
 
 interface VerifyStatusServerResponse {
