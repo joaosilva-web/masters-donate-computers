@@ -16,6 +16,7 @@ interface InputProps extends InputHTMLAttributes<HTMLElement> {
   register?: any;
   w: string;
   errors?: any;
+  required?: boolean;
 }
 
 const Input = ({
@@ -26,6 +27,7 @@ const Input = ({
   register,
   w,
   errors,
+  required = false
 }: InputProps) => {
   // USECALLBACK TO GET THE INPUT MASK
   const handleKeyUp = useCallback(
@@ -44,6 +46,7 @@ const Input = ({
     <InputContainer w={w} type={inputType}>
       <LabelWrapper>
         <label htmlFor={register.name}>{label && <p>{label}</p>}</label>
+        <p>{required && '*'}</p>
         <p>{errors && errors[register.name]?.message}</p>
       </LabelWrapper>
       <InputText

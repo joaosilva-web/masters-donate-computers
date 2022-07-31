@@ -19,24 +19,24 @@ import FormGroupContainer from "../FormGroupContainer";
 
 // VALIDATION FORM SCHEMA
 const newDonationFormValidationSchema = zod.object({
-  name: zod.string().min(1, "*Informe o seu nome"),
+  name: zod.string().min(1, "Informe o seu nome"),
   email: zod
     .string()
-    .min(1, "*Informe o seu E-mail")
-    .email("*Utilize um E-mail valido!"),
-  phone: zod.string().min(1, "*Informe o seu Telefone"),
+    .min(1, "Informe o seu E-mail")
+    .email("Utilize um E-mail valido!"),
+  phone: zod.string().min(1, "Informe o seu Telefone"),
 
-  zip: zod.string().min(1, "*Informe o seu CEP"),
-  city: zod.string().min(1, "*Informe sua cidade"),
-  state: zod.string().min(1, "*Informe seu estado"),
-  streetAddress: zod.string().min(1, "*Informe o seu endereço"),
-  number: zod.string().min(1, "*Informe o seu número"),
+  zip: zod.string().min(1, "Informe o seu CEP"),
+  city: zod.string().min(1, "Informe sua cidade"),
+  state: zod.string().min(1, "Informe seu estado"),
+  streetAddress: zod.string().min(1, "Informe o seu endereço"),
+  number: zod.string().min(1, "Informe o seu número"),
   complement: zod.string().nullable(),
-  neighborhood: zod.string().min(1, "*Informe o seu bairro"),
-  deviceCount: zod.number().min(1, "*Informe a quantidade de dispositivos"),
+  neighborhood: zod.string().min(1, "Informe o seu bairro"),
+  deviceCount: zod.number().min(1, "Informe a quantidade de dispositivos"),
 
-  type0: zod.string().min(1, "*Selecione o tipo"),
-  condition0: zod.string().min(1, "*Selecione a condição"),
+  type0: zod.string().min(1, "Selecione o tipo"),
+  condition0: zod.string().min(1, "Selecione a condição"),
 });
 
 const DataSubmissionForm = () => {
@@ -213,6 +213,7 @@ const DataSubmissionForm = () => {
           placeholder="João"
           register={register("name")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="email"
@@ -221,6 +222,7 @@ const DataSubmissionForm = () => {
           placeholder="joaosilva@gmail.com"
           register={register("email")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -230,6 +232,7 @@ const DataSubmissionForm = () => {
           mask="phone"
           register={register("phone")}
           errors={errors}
+          required={true}
         />
       </FormGroupContainer>
 
@@ -243,6 +246,7 @@ const DataSubmissionForm = () => {
           mask="zipcode"
           register={register("zip")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -252,6 +256,7 @@ const DataSubmissionForm = () => {
           mask="city"
           register={register("city")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -261,6 +266,7 @@ const DataSubmissionForm = () => {
           mask="state"
           register={register("state")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -269,6 +275,7 @@ const DataSubmissionForm = () => {
           placeholder="Vila Becker"
           register={register("neighborhood")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -277,6 +284,7 @@ const DataSubmissionForm = () => {
           placeholder="Av. São Paulo"
           register={register("streetAddress")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -285,6 +293,7 @@ const DataSubmissionForm = () => {
           placeholder="4878"
           register={register("number")}
           errors={errors}
+          required={true}
         />
         <Input
           inputType="text"
@@ -293,6 +302,7 @@ const DataSubmissionForm = () => {
           placeholder="Ao lado do mercado São Lucas"
           register={register("complement")}
           errors={errors}
+          required={false}
         />
       </FormGroupContainer>
 
@@ -305,6 +315,7 @@ const DataSubmissionForm = () => {
           placeholder="2"
           register={register("deviceCount", { valueAsNumber: true, value: 0 })}
           errors={errors}
+          required={true}
         />
       </FormGroupContainer>
 

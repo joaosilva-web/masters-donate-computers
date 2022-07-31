@@ -20,7 +20,7 @@ export const InputContainer = styled.div<InputContainerProps>`
 
 export const LabelWrapper = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
   align-items: center;
 
   & > p {
