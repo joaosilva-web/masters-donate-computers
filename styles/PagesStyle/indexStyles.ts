@@ -19,5 +19,28 @@ export const HeroContainer = styled.div`
   h4,
   p {
     color: ${(props) => props.theme["secondary"]};
+
   }
+
+  @media (max-width: 768px) {
+      margin-top: 4rem;
+      text-align: center;
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2, h3, h4, p {
+        font-size: 1rem;
+        font-weight: normal;
+      }
+
+  }
+  
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+  }
+
+
+
 `;

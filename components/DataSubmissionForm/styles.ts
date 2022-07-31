@@ -37,7 +37,10 @@ export const FormDataContainer = styled.form`
     flex-direction: column;
     align-items: center;
     width: 98%;
-    max-height: 100%;
+    max-height: auto;
+    height: auto;
+    overflow-y: initial;
+
   }
 
   @media (max-width: 1440px) {
