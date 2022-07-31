@@ -45,6 +45,11 @@ export const BaseInput = styled.input<BaseInputProps>`
     ${(props) => (props.errors ? props.theme["red-300"] : "transparent")};
   transition: 0.25s ease;
 
+  &:focus {
+    box-shadow: 0 0 0 2px
+    ${(props) => (props.errors ? props.theme["red-300"] : props.theme["primary"])};
+  }
+
   &::placeholder {
     color: ${(props) => props.theme["gray-400"]};
   }
