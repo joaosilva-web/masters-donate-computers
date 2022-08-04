@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <Container bg="primary" h="100vh">
+      <Container bg="primary" h="100vh" maxH="100vh">
         <HeroContainer>
           <ServerBadge isServerRunning={isServerRunning} />
           <div>
