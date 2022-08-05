@@ -4,11 +4,13 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../styles/globals";
 import { defaultTheme } from "../styles/themes/default";
 import "react-toastify/dist/ReactToastify.min.css";
+import { Layout } from "../components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
+        <Layout>
         <Component {...pageProps} />
         <GlobalStyle />
         <ToastContainer
@@ -21,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           closeOnClick
           pauseOnHover
         />
+        </Layout>
       </ThemeProvider>
     </>
   );
