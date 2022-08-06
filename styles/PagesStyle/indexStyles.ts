@@ -11,6 +11,10 @@ export const HomeWrapper = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 0.5%;
+
+  @media (max-width: 768px) {
+      flex-direction: column;
+  }
 `;
 
 export const HeroContainer = styled.div`

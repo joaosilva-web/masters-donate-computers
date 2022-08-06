@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 interface NavbarContainerProps {
@@ -14,6 +15,12 @@ justify-content: space-between;
 align-items: center;
 background: ${props => props.isMobileMenuOpen? props.theme['secondary'] : props.theme['primary']};
 transition: 0.35s ease;
+`
+
+export const Logo = styled.button`
+       cursor: pointer;
+       border: 0;
+       background: transparent;
 `
 
 interface MenuBarsProps {
