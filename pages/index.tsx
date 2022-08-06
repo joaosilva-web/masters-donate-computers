@@ -50,18 +50,17 @@ const Home: NextPage = () => {
         />
       </Head>
 
-        <HeroContainer>
-          <ServerBadge isServerRunning={isServerRunning} />
-          <div>
-            <h1>Doação de computadores usados</h1>
-            <h2>Possui um computador que por algum motivo não usa mais?</h2>
-            <h2>Faça uma doação e torne alguem que precise feliz!</h2>
-          </div>
+      <HeroContainer>
+        <ServerBadge isServerRunning={isServerRunning} />
+        <div>
+          <h1>Doação de computadores usados</h1>
+          <h2>Possui um computador que por algum motivo não usa mais?</h2>
+          <h2>Faça uma doação e torne alguem que precise feliz!</h2>
+        </div>
 
-          <Image src={giftImage} alt="a gift" layout="intrinsic" />
-        </HeroContainer>
-        <DataSubmissionForm />
-
+        <Image src={giftImage} alt="a gift" layout="intrinsic" />
+      </HeroContainer>
+      <DataSubmissionForm />
     </HomeWrapper>
   );
 };

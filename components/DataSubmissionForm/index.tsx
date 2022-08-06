@@ -92,22 +92,24 @@ const DataSubmissionForm = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error)
-        if(error.response.data.error && !error.response.data.requiredFields){
+        console.log(error);
+        if (error.response.data.error && !error.response.data.requiredFields) {
           toast(
             "Ocorreu um erro de conexão com o servidor tente novamente em alguns segundos!",
             { type: "error" }
-            );
-            setLoading(false);
+          );
+          setLoading(false);
         } else {
-          toast(
-            "Preencha os campos obrigatórios corretamente!",
-            { type: "error" }
-            );
-            for(const field of error.response.data.requiredFields) {
-              setError(field, { type: "custom", message: "Preencha corretamente!" });
-            }
-            setLoading(false);
+          toast("Preencha os campos obrigatórios corretamente!", {
+            type: "error",
+          });
+          for (const field of error.response.data.requiredFields) {
+            setError(field, {
+              type: "custom",
+              message: "Preencha corretamente!",
+            });
+          }
+          setLoading(false);
         }
       });
   }

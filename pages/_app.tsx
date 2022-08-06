@@ -11,18 +11,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={defaultTheme}>
         <Layout>
-        <Component {...pageProps} />
-        <GlobalStyle />
-        <ToastContainer
-          className="impact-toast"
-          position="top-right"
-          autoClose={1500}
-          hideProgressBar={false}
-          newestOnTop={false}
-          draggable={false}
-          closeOnClick
-          pauseOnHover
-        />
+          <Component {...pageProps} />
+          <GlobalStyle />
+          <ToastContainer
+            className="impact-toast"
+            position="top-right"
+            autoClose={1500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            draggable={false}
+            closeOnClick
+            pauseOnHover
+          />
         </Layout>
       </ThemeProvider>
     </>

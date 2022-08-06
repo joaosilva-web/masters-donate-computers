@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
 export const InstitutionsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    /* gap: 1rem; */
-    max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  /* gap: 1rem; */
+  max-width: 1440px;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    h1, p {
-      color: ${props => props.theme.secondary};
-      /* line-height: 1.75rem; */
-      padding: 0;
-    }
+  h1,
+  p {
+    color: ${(props) => props.theme.secondary};
+    /* line-height: 1.75rem; */
+    padding: 0;
+  }
 
-    & > p {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-`
+  & > p {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+`;
 
 export const CardWrapper = styled.div`
   display: flex;
@@ -31,24 +31,21 @@ export const CardWrapper = styled.div`
   min-width: 25%;
 
   @media screen and (min-width: 320px) and (max-width: 425px) {
-      margin: 2%;
-    }
+    margin: 2%;
+  }
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
   }
   @media screen and (min-width: 1024px) and (max-width: 1440px) {
-  /* justify-content: center; */
-  align-items: initial;
-}
-`
+    /* justify-content: center; */
+    align-items: initial;
+  }
+`;
 
 export const InstitutionCard = styled.div`
-
-
   margin-bottom: 1rem;
 
   background-color: ${(props) => props.theme["gray-50"]};
@@ -59,11 +56,16 @@ export const InstitutionCard = styled.div`
   width: calc(25% - 1rem);
 
   p {
-    color: ${props => props.theme["gray-700"]};
+    color: ${(props) => props.theme["gray-700"]};
     text-align: center;
   }
 
-  h1,h2,h3,h4,h5,h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     text-align: center;
     font-size: 1rem;
   }
@@ -87,80 +89,80 @@ export const InstitutionCard = styled.div`
   @media (min-width: 768px) {
     p {
       max-height: 150px;
-      overflow: hidden; 
+      overflow: hidden;
     }
   }
-
-`
+`;
 
 export const LocationContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-&& > div {
+  && > div {
     display: flex;
     gap: 0.5rem;
-}
-b {
-        color: ${props => props.theme['gray-900']};
-        font-weight: 500;
-    }
-`
+  }
+  b {
+    color: ${(props) => props.theme["gray-900"]};
+    font-weight: 500;
+  }
+`;
 
 export const LinksContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    a {
-        color: ${props => props.theme["gray-700"]};
-    }
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  a {
+    color: ${(props) => props.theme["gray-700"]};
+  }
+`;
 
 export const TooltipContainer = styled.div`
   position: relative;
   display: inline-block;
 
-&& .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: ${props => props.theme["gray-900"]};
-  font-weight: 100;
-  font-size: 1rem;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+  && .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: ${(props) => props.theme["gray-900"]};
+    font-weight: 100;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
-&& .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: ${props => props.theme["gray-900"]} transparent transparent transparent;
-}
+  && .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: ${(props) => props.theme["gray-900"]} transparent transparent
+      transparent;
+  }
 
-&&:hover .tooltiptext {
-  visibility: visible;
-  opacity: 0.95;
-}
-`
+  &&:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.95;
+  }
+`;
 
 export const Divider = styled.div`
   width: 100%;
-  border-bottom: 2px solid ${props => props.theme["gray-100"]};
-`
+  border-bottom: 2px solid ${(props) => props.theme["gray-100"]};
+`;

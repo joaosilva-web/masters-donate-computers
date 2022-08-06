@@ -6,14 +6,14 @@ export const HomeWrapper = styled.div`
 
   min-height: calc(100vh - 6rem);
 
-  background: ${props => props.theme['primary']};
+  background: ${(props) => props.theme["primary"]};
 
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 0.5%;
 
   @media (max-width: 768px) {
-      flex-direction: column;
+    flex-direction: column;
   }
 `;
 
@@ -35,28 +35,24 @@ export const HeroContainer = styled.div`
   h4,
   p {
     color: ${(props) => props.theme["secondary"]};
-
   }
 
   @media (max-width: 768px) {
-      margin-top: 4rem;
-      text-align: center;
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2, h3, h4, p {
-        font-size: 1rem;
-        font-weight: normal;
-      }
-
+    margin-top: 4rem;
+    text-align: center;
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2,
+    h3,
+    h4,
+    p {
+      font-size: 1rem;
+      font-weight: normal;
+    }
   }
-  
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
-
   }
-
-
-
 `;
