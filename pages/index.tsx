@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <Container bg="primary" h="100vh" maxH="100vh">
+
         <HeroContainer>
           <ServerBadge isServerRunning={isServerRunning} />
           <div>
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
           <Image src={giftImage} alt="a gift" layout="intrinsic" />
         </HeroContainer>
         <DataSubmissionForm />
-      </Container>
+
     </HomeWrapper>
   );
 };

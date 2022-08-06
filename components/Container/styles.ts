@@ -10,7 +10,7 @@ interface ContainerDefaultProps {
 export const ContainerDefault = styled.div<ContainerDefaultProps>`
   display: flex;
   background: ${(props) => props.theme[props.bg]};
-  min-height: ${(props) => props.h};
+  min-height: calc(${(props) => props.h} - 6rem);
   max-height: ${(props) => props.maxH};
   /* max-height: ${(props) => props.h}; */
   justify-content: ${(props) => props.justify};

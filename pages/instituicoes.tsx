@@ -1,4 +1,4 @@
-import { institutionsMock } from "../mocks/institutions";
+import { institutionsMock } from "../utils/mocks/institutions";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa'
 import { BsGlobe } from 'react-icons/bs'
 import Link from "next/link";

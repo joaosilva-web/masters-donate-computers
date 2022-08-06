@@ -1,11 +1,23 @@
 import styled from "styled-components";
-export const HomeWrapper = styled.div``;
+export const HomeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: calc(100vh - 6rem);
+
+  background: ${props => props.theme['primary']};
+
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 0.5%;
+`;
 
 export const HeroContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 80%;
 
   margin: 1rem;
 
