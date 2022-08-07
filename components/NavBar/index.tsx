@@ -28,7 +28,6 @@ export const NavBar = () => {
 
     window.screen.width <= 1024? setIsmobile(true) : setIsmobile(false)
     
-    console.log(screenSize);
   }, [screenSize]);
 
   // FUNCTION THAT RETURNS THE NAVIGATION DATA WITHIN A LIST

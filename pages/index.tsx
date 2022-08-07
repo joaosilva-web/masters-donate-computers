@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         setIsServerRunning(response.data.alive);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   }
 

@@ -8,7 +8,6 @@ export function phone(e: FormEvent<HTMLInputElement>) {
   value = value.replace(/(\d)(\d{4})$/, "$1-$2"); //PUT HYPHEN BETWEEN THE FIFTH DIGITAL
 
   e.currentTarget.value = value;
-  console.log(value);
   return e;
 }
 

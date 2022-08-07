@@ -92,7 +92,6 @@ const DataSubmissionForm = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         if (error.response.data.error && !error.response.data.requiredFields) {
           toast(
             "Ocorreu um erro de conexão com o servidor tente novamente em alguns segundos!",
