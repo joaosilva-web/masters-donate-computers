@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { render } from "react-dom";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { navData } from "../../utils/mocks/navData";
@@ -16,6 +17,7 @@ import {
 export const NavBar = () => {
   const router = useRouter();
   const [screenSize, setScreenSize] = useState<number>();
+  const [isMobile, setIsmobile] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // GET THE SCREEN SIZE
@@ -23,8 +25,11 @@ export const NavBar = () => {
     window.addEventListener("resize", () => {
       setScreenSize(window.screen.width);
     });
-    console.log(window.screen.width);
-  }, []);
+
+    window.screen.width <= 1024? setIsmobile(true) : setIsmobile(false)
+    
+    console.log(screenSize);
+  }, [screenSize]);
 
   // FUNCTION THAT RETURNS THE NAVIGATION DATA WITHIN A LIST
   function returnNavData() {
@@ -53,7 +58,7 @@ export const NavBar = () => {
     <NavBarContainer isMobileMenuOpen={isMobileMenuOpen}>
       <Logo onClick={() => router.push("/")}>
         <svg
-          width={screenSize && screenSize <= 768 ? "250" : "400"}
+          width={isMobile? "250" : "400"}
           viewBox="0 0 665 111"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +92,7 @@ export const NavBar = () => {
           />
         </svg>
       </Logo>
-      {screenSize && screenSize < 1440 ? (
+      {isMobile && (
         <>
           <MenuBars
             isMobileMenuOpen={isMobileMenuOpen}
@@ -104,7 +109,9 @@ export const NavBar = () => {
             {returnNavData()}
           </MenuMobile>
         </>
-      ) : (
+      )}
+
+      {!isMobile && (
         <Menu>{returnNavData()}</Menu>
       )}
     </NavBarContainer>
