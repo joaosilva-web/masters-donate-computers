@@ -25,8 +25,8 @@ const institutions = () => {
         <h1>Instituições</h1>
         <p>Encontre instituições pertinho de você para fazer a sua doação!</p>
         <CardWrapper>
-          {institutionsMock().map((institutions) => (
-            <InstitutionCard key={institutions.institutionName}>
+          {institutionsMock().map((institutions, index) => (
+            <InstitutionCard key={`${institutions.institutionName} ${index}`}>
               <h2>{institutions.institutionName}</h2>
               <p>{institutions.presentation}</p>
               <Divider />
