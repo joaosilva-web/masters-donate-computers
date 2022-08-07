@@ -3,7 +3,7 @@
 export const institutionsMock = () => {
     return [
     {
-        institutionName: 'UTFPR - UNIVERSIDADE TECNOLOGICA FEDERAL DO PARANÁ',
+        institutionName: 'UTFPR',
         address: {
             city: 'Toledo',
             district: 'Vila Becker',
@@ -17,7 +17,7 @@ export const institutionsMock = () => {
         }
     },
     {
-        institutionName: 'UTFPR - UNIVERSIDADE TECNOLOGICA FEDERAL DO PARANÁ',
+        institutionName: 'UNIPAR',
         address: {
             city: 'Toledo',
             district: 'Vila Becker',
@@ -31,7 +31,7 @@ export const institutionsMock = () => {
         }
     },
     {
-        institutionName: 'UTFPR - UNIVERSIDADE TECNOLOGICA FEDERAL DO PARANÁ',
+        institutionName: 'UNIOEST',
         address: {
             city: 'Toledo',
             district: 'Vila Becker',
@@ -45,7 +45,7 @@ export const institutionsMock = () => {
         }
     },
     {
-        institutionName: 'UTFPR - UNIVERSIDADE TECNOLOGICA FEDERAL DO PARANÁ',
+        institutionName: 'UFPR',
         address: {
             city: 'Toledo',
             district: 'Vila Becker',
@@ -59,7 +59,7 @@ export const institutionsMock = () => {
         }
     },
     {
-        institutionName: 'UTFPR - UNIVERSIDADE TECNOLOGICA FEDERAL DO PARANÁ',
+        institutionName: 'UNOPAR',
         address: {
             city: 'Toledo',
             district: 'Vila Becker',
