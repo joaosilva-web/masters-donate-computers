@@ -9,6 +9,7 @@ export const PageWrapper = styled.div`
         padding-top: 6rem;
         padding-bottom: 1rem;
     }
+
 `
 
 export const Header = styled.div`

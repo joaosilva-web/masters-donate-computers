@@ -14,6 +14,7 @@ export const HomeWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 0 2%;
   }
 `;
 
@@ -54,5 +55,10 @@ export const HeroContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+  }
+
+  @media (min-width: 1440px) {
+    flex-direction: column;
+    width: 40%;
   }
 `;

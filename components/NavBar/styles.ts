@@ -15,6 +15,10 @@ justify-content: space-between;
 align-items: center;
 background: ${props => props.isMobileMenuOpen? props.theme['secondary'] : props.theme['primary']};
 transition: 0.35s ease;
+
+@media (max-width: 768px) {
+       padding: 0 2%;
+    }
 `
 
 export const Logo = styled.button`
@@ -76,6 +80,7 @@ export const MenuMobile = styled.div<MenuMobileProps>`
     height: calc(100% - 5rem);
     background-color: ${props => props.theme['secondary']};
     transition: 0.35s ease;
+    padding: 0 2%;
     ul {
         list-style: none;
         display: flex;

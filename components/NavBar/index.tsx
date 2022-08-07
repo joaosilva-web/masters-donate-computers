@@ -45,6 +45,10 @@ export const NavBar = () => {
     );
   }
 
+  useEffect(()=> {
+    setIsMobileMenuOpen(false)
+  },[router.pathname])
+
   return (
     <NavBarContainer isMobileMenuOpen={isMobileMenuOpen}>
       <Logo onClick={() => router.push("/")}>

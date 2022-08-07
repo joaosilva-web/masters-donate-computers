@@ -21,6 +21,11 @@ export const InstitutionsContainer = styled.div`
     padding-bottom: 1rem;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 768px) {
+    padding:0 2%;
+    text-align: center;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -30,14 +35,12 @@ export const CardWrapper = styled.div`
   flex-wrap: wrap;
   min-width: 25%;
 
-  @media screen and (min-width: 320px) and (max-width: 425px) {
-    margin: 2%;
-  }
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 0;
   }
   @media screen and (min-width: 1024px) and (max-width: 1440px) {
     /* justify-content: center; */

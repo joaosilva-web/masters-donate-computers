@@ -25,8 +25,4 @@ export const FormGroupWrapper = styled.div`
     width: 100%;
     height: auto;
   }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 `;

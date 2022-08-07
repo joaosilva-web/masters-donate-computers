@@ -46,6 +46,10 @@ export const FormDataContainer = styled.form`
   @media (max-width: 1440px) {
     width: 100%;
   }
+
+  @media (min-width: 1440px) {
+    width: 40%;
+  }
 `;
 
 interface ButtonProps {
