@@ -44,7 +44,7 @@ export const BaseInput = styled.input<BaseInputProps>`
   border-radius: 0.5rem;
   padding: 0.5rem;
   color: ${(props) => props.theme["gray-700"]};
-  font-weight: regular;
+  font-weight: bold;
   box-shadow: 0 0 0 2px
     ${(props) => (props.errors ? props.theme["red-300"] : "transparent")};
   transition: 0.25s ease;
@@ -56,6 +56,7 @@ export const BaseInput = styled.input<BaseInputProps>`
 
   &::placeholder {
     color: ${(props) => props.theme["gray-400"]};
+    font-weight: normal;
   }
 
   &&[type="submit"] {
