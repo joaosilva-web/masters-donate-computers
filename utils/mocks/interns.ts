@@ -13,7 +13,7 @@ export const interns: internsProps[] = [
       { name: "github", url: "https://github.com/douglassantos45" },
       {
         name: "linkedin",
-        url: "",
+        url: "https://www.linkedin.com/in/douglas-silva-5a330322b/",
       },
     ],
     develop: "frontend",

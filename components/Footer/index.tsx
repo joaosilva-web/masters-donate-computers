@@ -11,7 +11,6 @@ import {
   Interns,
 } from "./styles";
 
-import { FiGithub } from "react-icons/fi";
 import { FaCopyright, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 import { interns } from "../../utils/mocks/interns";
@@ -105,7 +104,8 @@ const Footer = () => {
               {" "}
               App Masters
             </a>
-            . O sistema é OpenSource e está disponível no github:
+            . O sistema é OpenSource e está disponível no github. Clique para
+            acessar:
           </p>
           <div>
             <a

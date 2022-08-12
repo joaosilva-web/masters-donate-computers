@@ -128,7 +128,7 @@ export const Interns = styled.div`
 
 export const Intern = styled.div`
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 
   div {
     font-size: 0.85rem;
@@ -152,7 +152,11 @@ export const Profile = styled.div`
     border: 3px solid ${({ theme }) => theme["gray-100"]};
   }
 
-  @media (min-width: 860px) {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.09);
   }
 `;
 
@@ -186,7 +190,7 @@ export const Social = styled.div`
       }
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: ${({ theme }) => theme["blue-500"]};
       }
     }
   }
