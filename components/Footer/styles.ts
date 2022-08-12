@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 5rem 2.8rem 1rem 2.8rem;
+  padding: 2rem 2.8rem 1rem 2.8rem;
 
   .container {
-    max-width: 1120px;
+    max-width: 1420px;
     margin: 0 auto;
   }
 
@@ -13,7 +13,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     padding: 50px 0 30px 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #fff;
 
     svg {
@@ -63,33 +63,38 @@ export const Logo = styled.h4`
 
 export const Content = styled.main`
   display: flex;
-  flex-direction: column-reverse;
-  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 10px;
+
+  @media (max-width: 1030px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const InternsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  align-items: baseline;
 
   position: relative;
 
   div.line {
     width: 1px;
     position: absolute;
-    top: 10px;
+    top: 35px;
     bottom: 0;
-    left: 50%;
-    height: 100%;
+    left: 49.9%;
+    height: 88%;
 
     background-color: #ffffff69;
   }
 
-  @media (min-width: 560px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  @media (max-width: 680px) {
+    flex-direction: column;
+    align-items: center;
   }
 
-  @media (min-width: 920px) {
+  @media (min-width: 680px) {
     gap: 2rem;
   }
 
@@ -102,10 +107,11 @@ export const InternsWrapper = styled.div`
 
 export const Interns = styled.div`
   margin-top: 10px;
+  width: 280px;
 
   > div {
-    background-color: rgba(255, 255, 255, 0.07);
-    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    padding: 1rem;
     border-radius: 5px;
   }
 
@@ -114,97 +120,127 @@ export const Interns = styled.div`
   }
 
   > span {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #fff;
-  }
-
-  @media (min-width: 720px) {
-    > div {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      padding: 10px 50px;
-    }
   }
 `;
 
 export const Intern = styled.div`
   margin-top: 10px;
-  margin-bottom: 15px;
-  span {
-    font-size: 0.7rem;
+  margin-bottom: 5px;
+
+  div {
+    font-size: 0.85rem;
   }
 `;
 
 export const Profile = styled.div`
   display: flex;
+  align-items: center;
 
-  span {
-    color: ${({ theme }) => theme['secondary']};
+  div {
+    color: #fff;
     font-weight: 500;
-    font-size: 0.8rem;
-  }
-
-  > a {
-    color: ${({ theme }) => theme['gray-50']};
-    font-size: 0.85rem;
-    transition: background-color 0.3s ease;
-
-    margin-top: 0.3rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #ffffff1a;
-    }
   }
 
   img {
-    width: 35px;
-    height: 35px;
-    background-color: #ffffff1a;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     margin-right: 10px;
+    border: 3px solid ${({ theme }) => theme["gray-100"]};
   }
 
   @media (min-width: 860px) {
-    a {
-      font-size: 0.8rem;
-    }
   }
 `;
 
 export const Social = styled.div`
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 
   div {
     display: flex;
     align-items: center;
     margin-top: 5px;
 
-    img {
-      width: 20px;
-      height: 20px;
+    a {
+      background-color: #027fb3;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5px;
+
+      transition: background-color 0.3s ease;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+
+      svg {
+        font-size: 0.75rem;
+        color: #fff;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
     }
   }
 `;
 
 export const Description = styled.div`
   text-align: center;
-  padding: 3rem 3.5rem 2rem 3.5rem;
+  padding: 3rem 3rem 2rem 3rem;
+
+  font-size: 1.185rem;
 
   color: #fff;
 
   a {
-    background-color: #ffffff1a;
-    margin-left: 0.5rem;
     border-radius: 2px;
     color: white;
     font-weight: 500;
     text-decoration: none;
+  }
 
-    &:hover {
-      font-weight: 600;
+  div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+    span {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 0.8rem;
+      margin-right: 10px;
+    }
+
+    a {
+      margin-top: 10px;
+      background-color: #027fb3;
+      border-radius: 7px;
+      padding: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+      border: 1px solid #027fb3;
+
+      svg {
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background-color: ${({ theme }) => theme["primary"]};
+        border: 1px solid ${({ theme }) => theme["blue-300"]};
+      }
     }
   }
 

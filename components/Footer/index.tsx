@@ -9,28 +9,20 @@ import {
   Profile,
   Social,
   Interns,
-} from './styles';
+} from "./styles";
 
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
-import { FaCopyright } from 'react-icons/fa';
-import { interns } from '../../utils/mocks/interns';
+import { FiGithub } from "react-icons/fi";
+import { FaCopyright, FaLinkedinIn, FaGithub } from "react-icons/fa";
+
+import { interns } from "../../utils/mocks/interns";
 
 const Footer = () => {
   return (
     <Container>
-      <Header>
-        <div className="container">
-          <Logo>
-            Masters <span>Donate</span>
-          </Logo>
-          <a
-            href="https://github.com/app-masters/doar-computadores-frontend/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiGithub />
-          </a>
-        </div>
+      <Header className="container">
+        <Logo>
+          Masters <span>Donate</span>
+        </Logo>
       </Header>
       <Content className="container">
         <InternsWrapper>
@@ -38,29 +30,33 @@ const Footer = () => {
             <span>Front-end</span>
             <div>
               {interns.map(
-                intern =>
-                  intern.develop === 'frontend' && (
+                (intern) =>
+                  intern.develop === "frontend" && (
                     <Intern key={intern.avatar}>
                       <Profile>
                         <img src={intern.avatar} alt="" />
                         <Social>
-                          <span>{intern.name}</span>
+                          <div>{intern.name}</div>
                           <div>
-                            {intern.social.map(({ name, url }) => (
+                            {intern.social.map(({ name, url }, index) => (
                               <a
                                 href={url}
                                 target="_blank"
-                                key={url}
+                                key={index}
                                 rel="noopener noreferrer"
                               >
-                                <img src={`./${name}.svg`} alt="" />
+                                {name === "linkedin" ? (
+                                  <FaLinkedinIn />
+                                ) : (
+                                  <FaGithub />
+                                )}
                               </a>
                             ))}
                           </div>
                         </Social>
                       </Profile>
                     </Intern>
-                  ),
+                  )
               )}
             </div>
           </Interns>
@@ -71,29 +67,33 @@ const Footer = () => {
             <span>Back-end</span>
             <div>
               {interns.map(
-                intern =>
-                  intern.develop === 'backend' && (
+                (intern) =>
+                  intern.develop === "backend" && (
                     <Intern key={intern.avatar}>
                       <Profile>
                         <img src={intern.avatar} alt="" />
                         <Social>
-                          <span>{intern.name}</span>
+                          <div>{intern.name}</div>
                           <div>
-                            {intern.social.map(({ name, url }) => (
+                            {intern.social.map(({ name, url }, index) => (
                               <a
                                 href={url}
                                 target="_blank"
-                                key={url}
+                                key={index}
                                 rel="noopener noreferrer"
                               >
-                                <img src={`./${name}.svg`} alt="" />
+                                {name === "linkedin" ? (
+                                  <FaLinkedinIn />
+                                ) : (
+                                  <FaGithub />
+                                )}
                               </a>
                             ))}
                           </div>
                         </Social>
                       </Profile>
                     </Intern>
-                  ),
+                  )
               )}
             </div>
           </Interns>
@@ -102,17 +102,28 @@ const Footer = () => {
           <p>
             Sistema de doação feito no processo de seleção para estagiário(a) da
             <a href="" target="_blank" rel="noopener noreferrer">
+              {" "}
               App Masters
             </a>
             . O sistema é OpenSource e está disponível no github:
           </p>
-          <a
-            href="https://github.com/app-masters/doar-computadores-frontend/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://github.com/app-masters/doar-computadores-frontend/
-          </a>
+          <div>
+            <a
+              href="https://github.com/app-masters/doar-computadores-frontend/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Frontend
+            </a>
+
+            <a
+              href="https://github.com/app-masters/doar-computadores-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Backend
+            </a>
+          </div>
         </Description>
       </Content>
 
