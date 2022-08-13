@@ -11,7 +11,7 @@ import {
   Interns,
 } from "./styles";
 
-import { FaCopyright, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 import { interns } from "../../utils/mocks/interns";
 
@@ -98,14 +98,31 @@ const Footer = () => {
           </Interns>
         </InternsWrapper>
         <Description>
+          <h4>
+            Master <span>Donate</span>
+          </h4>
           <p>
-            Sistema de doação feito no processo de seleção para estagiário(a) da
-            <a href="" target="_blank" rel="noopener noreferrer">
-              {" "}
-              App Masters
+            Sistema de doação de computadores feito no processo de seleção para
+            estagiário(a) da&nbsp;
+            <a
+              href="https://www.appmasters.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              App Masters.
             </a>
-            . O sistema é OpenSource e está disponível no github. Clique para
-            acessar:
+            &nbsp;O frontend do sistema foi desenvolvido utilizando NextJS,
+            Typescript e Styled-Components, já o backend por sua vez,
+            utilizou-se do NodeJS, Express, Jest, Typescript, MySQL e Knex. O
+            prejeto é&nbsp;
+            <b>OpenSource</b> e está disponível na plataforma do <b>Github</b>.
+            <br />
+            Você já pensou em doar peças de computadores que não usa mais e
+            arranjar aquele tão sonhado espaço livre para novas coisas, e tudo
+            isso sem precisar sair de casa? Então tá esperando o quê? Corra,
+            aproveite e faça sua doação para ajudar quem precisa.
+            <br />
+            <br /> Clique para acessar e contribuir com o projeto:
           </p>
           <div>
             <a
@@ -113,6 +130,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <FaGithub />
               Frontend
             </a>
 
@@ -121,6 +139,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <FaGithub />
               Backend
             </a>
           </div>
@@ -128,7 +147,7 @@ const Footer = () => {
       </Content>
 
       <footer>
-        App Masters All rights reserved <FaCopyright />
+        Copyright &copy; 2022 All rights Reserved by&nbsp;<b>AppMasters</b>
       </footer>
     </Container>
   );

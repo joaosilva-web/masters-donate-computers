@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 0 30px 0;
+    padding: 40px 0 10px 0;
     font-size: 1rem;
     color: #fff;
 
@@ -23,6 +23,10 @@ export const Container = styled.div`
 
   @media (max-width: 720px) {
     padding: 5rem 1.5rem 1rem 1.5rem;
+
+    footer {
+      font-size: 0.8rem;
+    }
   }
 `;
 
@@ -63,18 +67,20 @@ export const Logo = styled.h4`
 
 export const Content = styled.main`
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  padding-top: 10px;
 
-  @media (max-width: 1030px) {
+  flex-direction: row;
+  padding-top: 20px;
+
+  @media (max-width: 1070px) {
     flex-direction: column-reverse;
+    align-items: center;
   }
 `;
 
 export const InternsWrapper = styled.div`
   display: flex;
   align-items: baseline;
+  gap: 2rem;
 
   position: relative;
 
@@ -84,7 +90,7 @@ export const InternsWrapper = styled.div`
     top: 35px;
     bottom: 0;
     left: 49.9%;
-    height: 88%;
+    height: 320px;
 
     background-color: #ffffff69;
   }
@@ -92,10 +98,6 @@ export const InternsWrapper = styled.div`
   @media (max-width: 680px) {
     flex-direction: column;
     align-items: center;
-  }
-
-  @media (min-width: 680px) {
-    gap: 2rem;
   }
 
   @media (max-width: 1060px) {
@@ -131,7 +133,7 @@ export const Intern = styled.div`
   margin-bottom: 12px;
 
   div {
-    font-size: 0.85rem;
+    font-size: 0.83rem;
   }
 `;
 
@@ -145,8 +147,8 @@ export const Profile = styled.div`
   }
 
   img {
-    width: 65px;
-    height: 65px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     margin-right: 10px;
     border: 3px solid ${({ theme }) => theme["gray-100"]};
@@ -156,13 +158,11 @@ export const Profile = styled.div`
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.09);
+    transform: scale(1.07);
   }
 `;
 
 export const Social = styled.div`
-  font-size: 0.75rem;
-
   div {
     display: flex;
     align-items: center;
@@ -197,24 +197,35 @@ export const Social = styled.div`
 `;
 
 export const Description = styled.div`
-  text-align: center;
-  padding: 3rem 3rem 2rem 3rem;
+  text-align: justify;
+  padding: 0;
 
-  font-size: 1.185rem;
+  font-size: 0.88rem;
+
+  h4 {
+    font-size: 1rem;
+    span {
+      font-weight: 400;
+    }
+  }
+
+  p {
+    margin-top: 8px;
+    line-height: 23px;
+  }
 
   color: #fff;
 
   a {
     border-radius: 2px;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
   }
 
   div {
     margin-top: 10px;
     display: flex;
-    justify-content: center;
 
     span {
       display: flex;
@@ -225,30 +236,44 @@ export const Description = styled.div`
     }
 
     a {
-      margin-top: 10px;
       background-color: #027fb3;
-      border-radius: 7px;
-      padding: 0.6rem;
+      border-radius: 4px;
+      padding: 0.35rem 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 10px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: background-color 0.3s ease;
       border: 1px solid #027fb3;
+      font-weight: 400;
 
-      svg {
-        margin-right: 5px;
-      }
+      margin-right: 10px;
 
       &:hover {
         background-color: ${({ theme }) => theme["primary"]};
         border: 1px solid ${({ theme }) => theme["blue-300"]};
       }
+
+      svg {
+        font-size: 1.1rem;
+        margin-right: 8px;
+      }
     }
   }
 
-  @media (max-width: 740px) {
-    padding: 3rem 0 2rem 0;
+  @media (max-width: 1080px) {
+    div {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    div {
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    padding: 1.6rem 1rem 2rem 4.5rem;
   }
 `;
